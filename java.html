@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Us</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    .w3-bar {
+      width: 100%;
+      background-color: #333; /* Add your desired background color here */
+    }
+
+    .w3-bar-item {
+      font-size: 26px;
+      padding: 12px 20px;
+      float: right;
+      color: rgb(0, 0, 0); /* Text color for the navbar items */
+      margin-top: 10px;
+    }
+
+    .w3-button {
+      margin: 0px;
+    }
+
+    /* สไตล์ CSS ของฟอร์ม */
+    .container {
+      max-width: 1000px;
+      margin: 20px auto;
+      margin-top: 100px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+
+    .container form label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .container form input[type="text"],
+    .container form input[type="email"],
+    .container form input[type="tel"] {
+      width: calc(100% - 20px);
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .container form input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .container form input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    button[type="button"] {
+      background-color: #f44336;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button[type="button"]:hover {
+      background-color: #d32f2f;
+    }
+
+    .card {
+      border: 100px solid #ccc;
+      border-radius: 4px;
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing: 4px">
+    <a href="#home" class="w3-bar-item w3-button"><b>Contact</b width></a>
+    <div class="w3-right w3-hide-small">
+    <a href="/index.html" class="w3-bar-item w3-button">About Me</a>
+    <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+    <a href="api.html" class="w3-bar-item w3-button">Api</a>
+  </div>
+</div>
+
+<div class="container">
+  <form action="/submit-form" method="post" onsubmit="return showCard()">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Your name.." required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Your email.." required>
+
+    <label for="tel">Telephone</label>
+    <input type="tel" id="tel" name="tel" placeholder="Your telephone number..">
+
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" placeholder="Subject.." required>
+
+    <input type="submit" value="Send">
+    <button type="button" onclick="clearForm()">Clear Form</button> <!-- Add Clear Form button -->
+  </form>
+
+  <!-- Card to display submitted information -->
+  <div class="card" id="contactCard" style="display: none;">
+    <h2>Contact Information</h2>
+    <p><strong>Name:</strong> <span id="cardName"></span></p>
+    <p><strong>Email:</strong> <span id="cardEmail"></span></p>
+    <p><strong>Telephone:</strong> <span id="cardTel"></span></p>
+    <p><strong>Title:</strong> <span id="cardTitle"></span></p>
+  </div>
+</div>
+
+<script>
+  function showCard() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const tel = document.getElementById('tel').value;
+    const title = document.getElementById('title').value;
+
+    document.getElementById('cardName').innerText = name;
+    document.getElementById('cardEmail').innerText = email;
+    document.getElementById('cardTel').innerText = tel;
+    document.getElementById('cardTitle').innerText = title;
+
+    document.getElementById('contactCard').style.display = 'block';
+    
+    return false; // Prevent the form from submitting and refreshing the page
+  }
+
+  function clearForm() {
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('tel').value = '';
+    document.getElementById('title').value = '';
+    document.getElementById('contactCard').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
